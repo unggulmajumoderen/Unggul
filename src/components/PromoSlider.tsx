@@ -37,7 +37,7 @@
             <div key={promo._id} className="w-full shrink-0 px-2 md:px-4">
                 
                 {/* Box Poster */}
-                <Link href={`/promo/${promo.slug || promo._id}`} className="block w-full h-[180px] sm:h-[300px] md:h-[400px] lg:h-[450px] relative rounded-2xl md:rounded-[30px] overflow-hidden shadow-xl border border-gray-100 bg-white group cursor-pointer">
+                <Link href={`/promo/${promo.slug || promo._id}`} className="block w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] relative rounded-2xl md:rounded-[30px] overflow-hidden shadow-xl border border-gray-100 bg-white group cursor-pointer">
                 <Image 
                     src={promo.imageUrl} 
                     alt={promo.title} 

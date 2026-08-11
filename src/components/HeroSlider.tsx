@@ -28,7 +28,7 @@
     }
 
     return (
-        <div className="relative w-full h-[300px] md:h-[500px] overflow-hidden bg-gray-100">
+        <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[24/9] lg:aspect-[3/1] overflow-hidden bg-gray-100">
         
         {/* Track Slider yang bergeser ke kanan/kiri */}
         <div 
