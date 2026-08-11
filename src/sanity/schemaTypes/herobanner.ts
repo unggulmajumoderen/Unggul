@@ -37,7 +37,7 @@
         isActive: 'isActive',
         media: 'image',
         },
-        prepare(selection: { title: string; isActive: boolean; media: unknown }) {
+        prepare(selection: Record<string, any>) {
         const { title, isActive, media } = selection
         
         return {

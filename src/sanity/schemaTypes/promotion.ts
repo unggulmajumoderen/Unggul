@@ -56,7 +56,7 @@
         endDate: 'endDate',
         media: 'image',
         },
-        prepare(selection: { title: string; startDate: string; endDate: string; media: unknown }) {
+        prepare(selection: Record<string, any>) {
         const { title, startDate, endDate, media } = selection
         
         // Bikin teks otomatis untuk rentang waktu di list dashboard

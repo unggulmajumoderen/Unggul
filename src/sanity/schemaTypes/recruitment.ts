@@ -62,7 +62,7 @@
         endDate: 'endDate',
         media: 'poster',
         },
-        prepare(selection: { title: string; startDate: string; endDate: string; media: unknown }) {
+        prepare(selection: Record<string, any>) {
         const { title, startDate, endDate, media } = selection
         
         // Logika biar tampilannya rapi di dashboard: "Tgl Mulai sampai Tgl Akhir"
