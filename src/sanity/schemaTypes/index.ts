@@ -1,8 +1,13 @@
 import { type SchemaTypeDefinition } from 'sanity'
-import { event } from './event' // <-- Ubah import ke file event
-import { news } from './news' // <-- Ubah import ke file news
-import { category } from './category' // <-- Ubah import ke file category
+import { event } from './event'
+import { news } from './news'
+import { category } from './category'
+import { location } from './location'
+import { recruitment} from './recruitment'
+import { promotion } from './promotion'
+import { herobanner } from './herobanner'
+import { service } from './service' // <-- Import layanan
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [event, category, news] // <-- Masukkan event ke dalam array, 
+  types: [event, category, news, location, recruitment, promotion, herobanner, service] 
 }
