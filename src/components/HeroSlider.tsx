@@ -28,21 +28,21 @@
     }
 
     return (
-        <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[24/9] lg:aspect-[3/1] overflow-hidden bg-gray-100">
+        <div className="relative w-full overflow-hidden bg-gray-100 flex items-center">
         
         {/* Track Slider yang bergeser ke kanan/kiri */}
         <div 
-            className="flex w-full h-full transition-transform duration-700 ease-in-out"
+            className="flex w-full transition-transform duration-700 ease-in-out items-center"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
             {banners.map((banner) => (
-            <div key={banner._id} className="min-w-full relative h-full">
+            <div key={banner._id} className="min-w-full flex justify-center">
                 {banner.link ? (
-                <Link href={banner.link}>
-                    <Image src={banner.imageUrl} alt={banner.title} fill className="object-cover" unoptimized />
+                <Link href={banner.link} className="w-full block">
+                    <img src={banner.imageUrl} alt={banner.title} className="w-full h-auto block" />
                 </Link>
                 ) : (
-                <Image src={banner.imageUrl} alt={banner.title} fill className="object-cover" unoptimized />
+                <img src={banner.imageUrl} alt={banner.title} className="w-full h-auto block" />
                 )}
             </div>
             ))}

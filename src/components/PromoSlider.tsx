@@ -37,13 +37,11 @@
             <div key={promo._id} className="w-full shrink-0 px-2 md:px-4">
                 
                 {/* Box Poster */}
-                <Link href={`/promo/${promo.slug || promo._id}`} className="block w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] relative rounded-2xl md:rounded-[30px] overflow-hidden shadow-xl border border-gray-100 bg-white group cursor-pointer">
-                <Image 
+                <Link href={`/promo/${promo.slug || promo._id}`} className="block w-full relative rounded-2xl md:rounded-[30px] overflow-hidden shadow-xl border border-gray-100 bg-white group cursor-pointer">
+                <img 
                     src={promo.imageUrl} 
                     alt={promo.title} 
-                    fill 
-                    className="object-cover group-hover:scale-105 transition-transform duration-500" 
-                    unoptimized 
+                    className="w-full h-auto block group-hover:scale-105 transition-transform duration-500" 
                 />
                 </Link>
                 
