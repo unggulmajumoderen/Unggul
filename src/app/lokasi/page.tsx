@@ -45,10 +45,10 @@ export default async function LokasiPage() {
               const isEven = index % 2 === 1;
 
               return (
-                <div key={item._id} className="bg-white rounded-[32px] shadow-xl overflow-hidden flex flex-col md:flex-row border border-gray-100 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 group">
+                <div key={item._id} className="bg-white rounded-[32px] shadow-xl overflow-hidden flex flex-col border border-gray-100 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 group">
                   
-                  {/* Bagian Gambar Toko */}
-                  <div className={`w-full md:w-5/12 h-64 md:h-auto min-h-[300px] relative ${isEven ? 'md:order-2' : 'md:order-1'}`}>
+                  {/* Bagian Gambar Toko (Sekarang Horizontal di Atas) */}
+                  <div className="w-full aspect-[16/9] md:aspect-[21/9] lg:aspect-[24/9] relative bg-gray-100">
                     {item.imageUrl ? (
                       <Image 
                         src={item.imageUrl} 
@@ -58,17 +58,18 @@ export default async function LokasiPage() {
                         unoptimized 
                       />
                     ) : (
-                      <div className="w-full h-full bg-gray-100 flex items-center justify-center text-gray-300">
+                      <div className="w-full h-full flex items-center justify-center text-gray-300">
                         <svg className="w-20 h-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                       </div>
                     )}
                     {/* Shadow overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                   </div>
 
-                  {/* Bagian Konten & Peta */}
-                  <div className={`w-full md:w-7/12 p-8 md:p-12 flex flex-col justify-between bg-white ${isEven ? 'md:order-1' : 'md:order-2'}`}>
-                    <div>
+                  {/* Bagian Konten & Peta (Bersebelahan di bawah gambar) */}
+                  <div className="w-full p-8 md:p-12 flex flex-col lg:flex-row gap-8 lg:gap-12 bg-white">
+                    {/* Info Teks */}
+                    <div className="w-full lg:w-1/2 flex flex-col justify-center">
                       <div className="flex items-center mb-3">
                         <div className="bg-red-50 text-red-600 p-2.5 rounded-xl mr-4 shadow-sm border border-red-100">
                           <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
@@ -78,14 +79,15 @@ export default async function LokasiPage() {
                       
                       <div className="w-12 h-1.5 bg-green-500 rounded-full mb-6 mt-4"></div>
                       
-                      <p className="text-gray-600 mb-8 leading-relaxed text-lg">
+                      <p className="text-gray-600 leading-relaxed text-lg mb-6">
                         {item.description || "Toko Unggul Mart yang nyaman, menyediakan berbagai macam kebutuhan harian Anda dengan harga hemat."}
                       </p>
                     </div>
 
-                    <div className="mt-auto">
+                    {/* Maps & Button */}
+                    <div className="w-full lg:w-1/2 flex flex-col justify-center">
                       {/* Peta Google Maps Iframe */}
-                      <div className="w-full h-56 rounded-2xl overflow-hidden mb-6 shadow-inner relative ring-1 ring-gray-200">
+                      <div className="w-full h-48 md:h-56 rounded-2xl overflow-hidden mb-6 shadow-inner relative ring-1 ring-gray-200">
                         {/* Overlay yang hilang saat dihover biar peta fokus */}
                         <div className="absolute inset-0 bg-gray-900/5 group-hover:bg-transparent transition-colors duration-500 pointer-events-none z-10"></div>
                         <iframe 
