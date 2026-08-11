@@ -73,7 +73,7 @@ export default function TentangPage() {
                 <div className="absolute inset-0 bg-green-600 rounded-full blur-3xl opacity-20 animate-pulse"></div>
                 <div className="absolute inset-4 bg-white rounded-full shadow-2xl flex items-center justify-center p-8 border-[10px] border-green-50">
                   <Image 
-                    src="/logo1.png"
+                    src="/logo-u.png"
                     alt="Logo Unggul"
                     width={200}
                     height={100}
