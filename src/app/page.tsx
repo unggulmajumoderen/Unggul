@@ -149,11 +149,11 @@ function CardItem({ item, type }: { item: any; type: string }) {
     <Link href={targetUrl} className="flex flex-col group cursor-pointer transition-all duration-300 rounded-xl overflow-hidden hover:bg-gray-50 p-2 md:p-3">
       
       {/* Thumbnail Gambar */}
-      <div className="relative w-full h-32 md:h-44 rounded-xl overflow-hidden mb-3 bg-gray-100">
+      <div className="relative w-full rounded-xl overflow-hidden mb-3 bg-gray-100 flex items-center justify-center">
         {item.imageUrl ? (
-          <Image src={item.imageUrl} alt={item.title || "Image"} fill className="object-cover group-hover:scale-105 transition-transform duration-300" unoptimized />
+          <img src={item.imageUrl} alt={item.title || "Image"} className="w-full h-auto block group-hover:scale-105 transition-transform duration-300" />
         ) : (
-          <div className="w-full h-full flex items-center justify-center text-gray-400 text-xs md:text-base">No Image</div>
+          <div className="w-full py-12 flex items-center justify-center text-gray-400 text-xs md:text-base">No Image</div>
         )}
         {/* BADGE KATEGORI */}
         {item.category && (

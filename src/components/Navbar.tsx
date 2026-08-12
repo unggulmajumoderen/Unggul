@@ -57,7 +57,8 @@
               <div className="absolute left-0 mt-0 w-56 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 overflow-hidden transform origin-top scale-95 group-hover:scale-100">
                 <div className="py-2">
                   <Link href="/tentang" className="block px-5 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 hover:font-bold transition-colors">Tentang Unggul</Link>
-                  <Link href="/visi-budaya" className="block px-5 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 hover:font-bold transition-colors">Visi & Budaya Perusahaan</Link>
+                  <Link href="/visi-budaya" className="block px-5 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 hover:font-bold transition-colors">Visi & Misi</Link>
+                  <Link href="/budaya-perusahaan" className="block px-5 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 hover:font-bold transition-colors">Budaya Perusahaan</Link>
                   <Link href="/karir" className="block px-5 py-3 text-sm text-gray-700 hover:bg-green-50 hover:text-green-700 hover:font-bold transition-colors">Karir & Rekrutmen</Link>
                 </div>
               </div>
@@ -156,7 +157,8 @@
                   {isTentangOpen && (
                     <div className="pl-4 mt-1 flex flex-col space-y-1 mb-2">
                       <Link href="/tentang" onClick={closeMenu} className="py-2 px-3 rounded-lg text-green-100 hover:text-white hover:bg-green-700/50 text-sm transition-colors border-l-2 border-green-500 ml-2">Tentang Unggul</Link>
-                      <Link href="/visi-budaya" onClick={closeMenu} className="py-2 px-3 rounded-lg text-green-100 hover:text-white hover:bg-green-700/50 text-sm transition-colors border-l-2 border-green-500 ml-2">Visi & Budaya Perusahaan</Link>
+                      <Link href="/visi-budaya" onClick={closeMenu} className="py-2 px-3 rounded-lg text-green-100 hover:text-white hover:bg-green-700/50 text-sm transition-colors border-l-2 border-green-500 ml-2">Visi & Misi</Link>
+                      <Link href="/budaya-perusahaan" onClick={closeMenu} className="py-2 px-3 rounded-lg text-green-100 hover:text-white hover:bg-green-700/50 text-sm transition-colors border-l-2 border-green-500 ml-2">Budaya Perusahaan</Link>
                       <Link href="/karir" onClick={closeMenu} className="py-2 px-3 rounded-lg text-green-100 hover:text-white hover:bg-green-700/50 text-sm transition-colors border-l-2 border-green-500 ml-2">Karir & Rekrutmen</Link>
                     </div>
                   )}

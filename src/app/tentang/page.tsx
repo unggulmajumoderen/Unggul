@@ -60,7 +60,7 @@ export default function TentangPage() {
                   <strong className="text-green-800">Berdiri sejak 2011.</strong> Unggul Mart adalah Retail modern Islami yang berdiri sejak 2011 di Berau.
                 </p>
                 <p>
-                  Kami tidak hanya hadir sebagai tempat belanja yang nyaman, tetapi sekaligus menjadi tempat tumbuh dan belajar bagi masyarakat dan karyawan kami.
+                  Kami tidak hanya hadir sebagai tempat belanja yang nyaman, tetapi sekaligus menjadi tempat tumbuh dan belajar.
                 </p>
                 <p>
                   Dengan izin Allah dan dukungan masyarakat, kini Unggul Mart memiliki beberapa cabang dan terus berkembang untuk memberikan pelayanan terbaik.

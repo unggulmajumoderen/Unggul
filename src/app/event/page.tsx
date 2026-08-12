@@ -33,11 +33,11 @@ import { client } from "@/sanity/lib/client";
 
                 return (
                 <Link key={item._id} href={targetUrl} className="flex flex-col group cursor-pointer transition-all duration-300 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md p-3">
-                    <div className="relative w-full h-32 md:h-44 rounded-xl overflow-hidden mb-3 bg-gray-100">
+                    <div className="relative w-full rounded-xl overflow-hidden mb-3 bg-gray-100 flex items-center justify-center">
                     {item.imageUrl ? (
-                        <Image src={item.imageUrl} alt={item.title} fill className="object-cover group-hover:scale-105 transition-transform duration-300" unoptimized />
+                        <img src={item.imageUrl} alt={item.title} className="w-full h-auto block group-hover:scale-105 transition-transform duration-300" />
                     ) : (
-                        <div className="w-full h-full flex items-center justify-center text-gray-400">No Image</div>
+                        <div className="w-full py-12 flex items-center justify-center text-gray-400">No Image</div>
                     )}
                     </div>
                     {formattedDate && <p className="text-[10px] md:text-xs text-green-700 font-semibold mb-1.5">{formattedDate}</p>}
