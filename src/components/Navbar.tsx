@@ -66,6 +66,7 @@
             {!isEventPage && <li><Link href="/#event" className="flex items-center hover:text-red-500 transition-colors py-2">Event</Link></li>}
             {!isBeritaPage && <li><Link href="/#berita" className="flex items-center hover:text-red-500 transition-colors py-2">Berita</Link></li>}
             <li><Link href="/layanan" className="flex items-center hover:text-red-500 transition-colors py-2">Layanan</Link></li>
+            <li><Link href="/program" className="flex items-center hover:text-red-500 transition-colors py-2">Program</Link></li>
             <li><Link href="/lokasi" className="flex items-center hover:text-red-500 transition-colors py-2">Lokasi</Link></li>
             <li><Link href="/promo" className="flex items-center hover:text-red-500 transition-colors py-2">Promosi</Link></li>
             </ul>
@@ -187,6 +188,13 @@
                     className="py-2.5 px-3 rounded-lg text-white hover:text-red-400 hover:bg-green-700/50 transition-all"
                 >
                     Layanan
+                </Link>
+                <Link 
+                    href="/program" 
+                    onClick={closeMenu} 
+                    className="py-2.5 px-3 rounded-lg text-white hover:text-red-400 hover:bg-green-700/50 transition-all"
+                >
+                    Program
                 </Link>
                 <Link 
                     href="/lokasi" 
