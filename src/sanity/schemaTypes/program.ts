@@ -10,6 +10,13 @@ export const program = {
       validation: (Rule: any) => Rule.required(),
     },
     {
+      name: 'order',
+      title: 'Urutan Tampil',
+      type: 'number',
+      description: 'Angka untuk menentukan urutan program di website (misal: 1, 2, 3). Semakin kecil angkanya, semakin di atas.',
+      initialValue: 99,
+    },
+    {
       name: 'description',
       title: 'Deskripsi Program',
       type: 'text',

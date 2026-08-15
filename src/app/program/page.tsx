@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 export const dynamic = 'force-dynamic';
 
 async function getPrograms() {
-  const query = `*[_type == "program" && !(_id in path("drafts.**"))] | order(_createdAt asc) {
+  const query = `*[_type == "program" && !(_id in path("drafts.**"))] | order(order asc, _createdAt asc) {
     _id,
     title,
     description,
