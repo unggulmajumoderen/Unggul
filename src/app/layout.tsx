@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Nunito } from "next/font/google"; 
+import { Nunito } from "next/font/google";
+import Script from "next/script"; 
 import "./globals.css";
 
 const nunito = Nunito({
@@ -24,6 +25,21 @@ export default function RootLayout({
   return (
     <html lang="id" className={nunito.variable}>
       <body className="min-h-screen bg-white text-gray-800 antialiased">
+        {/* Google Analytics */}
+        <Script 
+          src="https://www.googletagmanager.com/gtag/js?id=G-VY9ZJ6ZERR" 
+          strategy="afterInteractive" 
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-VY9ZJ6ZERR');
+          `}
+        </Script>
+        
         <Preloader />
         {children}
         <Footer />
