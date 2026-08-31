@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { client } from '@/sanity/lib/client';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://unggulmart.com'; // Nanti ganti dengan domain asli jika belum
+  const baseUrl = 'https://unggul-mart-ten.vercel.app'; // Ganti dengan domain custom jika nanti punya (misal: unggulmart.com)
 
   // Fetch data dari Sanity untuk halaman dinamis
   const dynamicRoutes = await client.fetch(`{

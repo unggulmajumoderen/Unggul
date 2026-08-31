@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://unggulmart.com'; // Ganti dengan domain asli jika sudah live
+  const baseUrl = 'https://unggul-mart-ten.vercel.app'; // Ganti dengan domain custom jika nanti punya
 
   return {
     rules: {
