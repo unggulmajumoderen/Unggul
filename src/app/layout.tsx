@@ -13,8 +13,28 @@ import Preloader from "@/components/Preloader";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Unggul Mart - Belanja Hemat dan Lengkap",
-  description: "Website resmi Unggul Mart",
+  metadataBase: new URL('https://unggul-mart-ten.vercel.app'),
+  title: {
+    default: "Unggul Mart - Belanja Hemat dan Lengkap",
+    template: "%s | Unggul Mart",
+  },
+  description: "Unggul Mart adalah retail modern Islami di Berau. Tempat belanja hemat, lengkap, nyaman, dan berkualitas.",
+  keywords: ["Unggul Mart", "Retail Berau", "Belanja Hemat Berau", "Supermarket Berau", "Swalayan Islami"],
+  openGraph: {
+    title: "Unggul Mart - Belanja Hemat dan Lengkap",
+    description: "Retail modern Islami di Berau. Tempat belanja hemat, lengkap, dan nyaman.",
+    url: 'https://unggul-mart-ten.vercel.app',
+    siteName: 'Unggul Mart',
+    images: [
+      {
+        url: '/logo-u.png', // Logo Unggul Mart untuk preview WhatsApp/FB
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: 'id_ID',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
