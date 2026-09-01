@@ -1,14 +1,14 @@
-  import { client } from "@/sanity/lib/client";
-  import Image from "next/image";
-  import Link from "next/link";
-  import HeroSlider from "@/components/HeroSlider";
-  import PromoSlider from "@/components/PromoSlider"; // <-- Import Slider Promosi Baru
-  import Navbar from "@/components/Navbar";
+import { client } from "@/sanity/lib/client";
+import Image from "next/image";
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import HeroSlider from "@/components/HeroSlider";
+import PromoSlider from "@/components/PromoSlider";
+import FeedbackSection from "@/components/FeedbackSection";
 
-  export const dynamic = 'force-dynamic';
+export const dynamic = 'force-dynamic';
 
-  // 1. Fungsi untuk menarik data Hero Banner
-  async function getHeroBanners() {
+async function getHeroBanners() {
     const query = `*[_type == "heroBanner" && isActive == true && !(_id in path("drafts.**"))] {
       _id,
       title,
@@ -126,7 +126,10 @@
             
           </section>
 
-
+          {/* =========================================================================
+              BAGIAN KRITIK, SARAN & BINTANG (FEEDBACK)
+              ========================================================================= */}
+          <FeedbackSection />
 
       </main>
     );
