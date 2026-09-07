@@ -35,14 +35,14 @@
             className="flex w-full transition-transform duration-700 ease-in-out items-center"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
         >
-            {banners.map((banner) => (
+            {banners.map((banner, index) => (
             <div key={banner._id} className="min-w-full flex justify-center">
                 {banner.link ? (
                 <Link href={banner.link} className="w-full block">
-                    <img src={banner.imageUrl} alt={banner.title} className="w-full h-auto block" />
+                    <img src={`${banner.imageUrl}?auto=format&w=1920&q=100`} loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} alt={banner.title} className="w-full h-auto block" />
                 </Link>
                 ) : (
-                <img src={banner.imageUrl} alt={banner.title} className="w-full h-auto block" />
+                <img src={`${banner.imageUrl}?auto=format&w=1920&q=100`} loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} alt={banner.title} className="w-full h-auto block" />
                 )}
             </div>
             ))}
