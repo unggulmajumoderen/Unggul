@@ -24,6 +24,7 @@ export default function Preloader() {
     return () => clearTimeout(timer);
   }, [pathname]);
 
+  if (pathname?.startsWith('/studio')) return null;
   if (!show) return null;
 
   return (
