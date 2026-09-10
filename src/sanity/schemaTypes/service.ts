@@ -25,6 +25,18 @@ export const service = {
       validation: (Rule: any) => Rule.required(),
     },
     {
+      name: 'instagram',
+      title: 'Link Instagram',
+      type: 'url',
+      description: 'URL ke akun Instagram layanan ini (opsional, contoh: https://instagram.com/unggul_mart)',
+    },
+    {
+      name: 'whatsapp',
+      title: 'Nomor WhatsApp',
+      type: 'string',
+      description: 'Nomor WhatsApp (opsional, contoh: 6281234567890)',
+    },
+    {
       name: 'isActive',
       title: 'Aktif / Tampilkan',
       type: 'boolean',

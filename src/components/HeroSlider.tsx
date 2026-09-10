@@ -39,10 +39,26 @@
             <div key={banner._id} className="min-w-full flex justify-center">
                 {banner.link ? (
                 <Link href={banner.link} className="w-full block">
-                    <img src={`${banner.imageUrl}?auto=format&w=1920&q=100`} loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} alt={banner.title} className="w-full h-auto block" />
+                    <img 
+                        src={`${banner.imageUrl}?auto=format&w=1920&q=100`} 
+                        srcSet={`${banner.imageUrl}?auto=format&w=600&q=80 600w, ${banner.imageUrl}?auto=format&w=1200&q=90 1200w, ${banner.imageUrl}?auto=format&w=1920&q=100 1920w`}
+                        sizes="(max-width: 768px) 600px, (max-width: 1200px) 1200px, 1920px"
+                        loading={index === 0 ? "eager" : "lazy"} 
+                        fetchPriority={index === 0 ? "high" : "auto"} 
+                        alt={banner.title} 
+                        className="w-full h-auto block" 
+                    />
                 </Link>
                 ) : (
-                <img src={`${banner.imageUrl}?auto=format&w=1920&q=100`} loading={index === 0 ? "eager" : "lazy"} fetchPriority={index === 0 ? "high" : "auto"} alt={banner.title} className="w-full h-auto block" />
+                <img 
+                    src={`${banner.imageUrl}?auto=format&w=1920&q=100`} 
+                    srcSet={`${banner.imageUrl}?auto=format&w=600&q=80 600w, ${banner.imageUrl}?auto=format&w=1200&q=90 1200w, ${banner.imageUrl}?auto=format&w=1920&q=100 1920w`}
+                    sizes="(max-width: 768px) 600px, (max-width: 1200px) 1200px, 1920px"
+                    loading={index === 0 ? "eager" : "lazy"} 
+                    fetchPriority={index === 0 ? "high" : "auto"} 
+                    alt={banner.title} 
+                    className="w-full h-auto block" 
+                />
                 )}
             </div>
             ))}
