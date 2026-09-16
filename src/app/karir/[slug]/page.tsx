@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 export const dynamic = 'force-dynamic';
 
 async function getRecruitmentDetails(slugOrId: string) {
-  const query = `*[_type == "recruitment" && (slug.current == $slugOrId || _id == $slugOrId) && !(_id in path("drafts.**"))][0] {
+  const query = `*[_type == "recruitment" && (slug.current == $slugOrId || _id == $slugOrId) && isActive == true && !(_id in path("drafts.**"))][0] {
     _id,
     title,
     "imageUrl": poster.asset->url,

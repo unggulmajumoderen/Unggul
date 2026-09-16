@@ -6,7 +6,7 @@ import Link from "next/link";
 export const dynamic = 'force-dynamic';
 
 async function getRecruitments() {
-  const query = `*[_type == "recruitment" && !(_id in path("drafts.**"))] | order(_createdAt desc) {
+  const query = `*[_type == "recruitment" && isActive == true && !(_id in path("drafts.**"))] | order(_createdAt desc) {
     _id,
     title,
     "slug": slug.current,
