@@ -6,15 +6,47 @@
 
     export default function PromoSlider({ promos }: { promos: { _id: string; title: string; imageUrl: string; slug?: string }[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+    
+    // State untuk mendeteksi sentuhan (swipe) di layar HP
+    const [touchStart, setTouchStart] = useState(0);
+    const [touchEnd, setTouchEnd] = useState(0);
 
-    // Efek geser otomatis tiap 5 detik
+    const handleTouchStart = (e: React.TouchEvent) => {
+        setIsPaused(true);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        setIsPaused(false);
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > 50;
+        const isRightSwipe = distance < -50;
+
+        if (isLeftSwipe) {
+            nextSlide();
+        }
+        if (isRightSwipe) {
+            prevSlide();
+        }
+        
+        setTouchStart(0);
+        setTouchEnd(0);
+    };
+
+    // Efek geser otomatis tiap 5 detik (Timer direset jika user interaksi)
     useEffect(() => {
-        if (promos.length <= 1) return;
+        if (promos.length <= 1 || isPaused) return;
         const interval = setInterval(() => {
         setCurrentIndex((prev) => (prev === promos.length - 1 ? 0 : prev + 1));
         }, 5000);
         return () => clearInterval(interval);
-    }, [promos.length]);
+    }, [promos.length, currentIndex, isPaused]);
 
     const nextSlide = () => setCurrentIndex((prev) => (prev === promos.length - 1 ? 0 : prev + 1));
     const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? promos.length - 1 : prev - 1));
@@ -24,9 +56,19 @@
     return (
         // RAHASIA UTAMA: Lebar dibatasi 85vw (biar poster utama pas di tengah),
         // tapi overflow-visible membiarkan sisa poster tetep nongol sampai ke ujung layar!
-        <div className="relative w-[85vw] max-w-[1200px] mx-auto overflow-visible py-4">
+        <div 
+            className="relative w-[85vw] max-w-[1200px] mx-auto overflow-visible py-4"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+        >
         
         {/* Track Geser */}
+        <div 
+            className="relative w-full overflow-visible flex items-center cursor-grab active:cursor-grabbing"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+        >
         <div 
             className="flex transition-transform duration-700 ease-in-out w-full"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -67,6 +109,7 @@
             </button>
             </>
         )}
+        </div>
         </div>
     );
     }

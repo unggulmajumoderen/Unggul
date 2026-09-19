@@ -6,15 +6,48 @@
 
     export default function HeroSlider({ banners }: { banners: { _id: string; title: string; imageUrl: string; link?: string }[] }) {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+    
+    // State untuk mendeteksi sentuhan (swipe) di layar HP
+    const [touchStart, setTouchStart] = useState(0);
+    const [touchEnd, setTouchEnd] = useState(0);
 
-    // Efek geser otomatis tiap 5 detik
+    const handleTouchStart = (e: React.TouchEvent) => {
+        setIsPaused(true);
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e: React.TouchEvent) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        setIsPaused(false);
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > 50; // Geser jari ke kiri (Next)
+        const isRightSwipe = distance < -50; // Geser jari ke kanan (Prev)
+
+        if (isLeftSwipe) {
+            nextSlide();
+        }
+        if (isRightSwipe) {
+            prevSlide();
+        }
+        
+        // Reset
+        setTouchStart(0);
+        setTouchEnd(0);
+    };
+
+    // Efek geser otomatis tiap 5 detik (Timer direset jika user menggeser atau menahan slider)
     useEffect(() => {
-        if (banners.length <= 1) return;
+        if (banners.length <= 1 || isPaused) return;
         const interval = setInterval(() => {
         setCurrentIndex((prev) => (prev === banners.length - 1 ? 0 : prev + 1));
         }, 5000); 
         return () => clearInterval(interval);
-    }, [banners.length]);
+    }, [banners.length, currentIndex, isPaused]);
 
     const nextSlide = () => setCurrentIndex((prev) => (prev === banners.length - 1 ? 0 : prev + 1));
     const prevSlide = () => setCurrentIndex((prev) => (prev === 0 ? banners.length - 1 : prev - 1));
@@ -28,8 +61,19 @@
     }
 
     return (
-        <div className="relative w-full overflow-hidden bg-gray-100 flex items-center">
+        <div 
+            className="w-full flex flex-col items-center bg-gray-100 pb-2"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+        >
         
+        {/* Kontainer Gambar & Panah */}
+        <div 
+            className="relative w-full overflow-hidden flex items-center cursor-grab active:cursor-grabbing"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+        >
         {/* Track Slider yang bergeser ke kanan/kiri */}
         <div 
             className="flex w-full transition-transform duration-700 ease-in-out items-center"
@@ -64,36 +108,40 @@
             ))}
         </div>
 
-        {/* Tombol Panah Kanan & Kiri */}
+        {/* Tombol Panah Kanan & Kiri (Disembunyikan di ukuran HP) */}
         {banners.length > 1 && (
             <>
             <button 
                 onClick={prevSlide} 
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-green-800 text-2xl font-bold w-12 h-12 flex items-center justify-center rounded-full z-20 shadow-lg transition-all"
+                className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-green-800 text-2xl font-bold w-12 h-12 items-center justify-center rounded-full z-20 shadow-lg transition-all"
             >
                 &#10094;
             </button>
             
             <button 
                 onClick={nextSlide} 
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-green-800 text-2xl font-bold w-12 h-12 flex items-center justify-center rounded-full z-20 shadow-lg transition-all"
+                className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-green-800 text-2xl font-bold w-12 h-12 items-center justify-center rounded-full z-20 shadow-lg transition-all"
             >
                 &#10095;
             </button>
 
-            {/* Titik-titik Navigasi di bawah gambar */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-2 z-20 bg-black/20 px-4 py-2 rounded-full">
+            </>
+        )}
+        </div>
+
+        {/* Titik-titik Navigasi di LUAR gambar (di bawah banner) */}
+        {banners.length > 1 && (
+            <div className="flex space-x-2 mt-4 mb-2">
                 {banners.map((_, index) => (
                 <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     className={`h-3 rounded-full transition-all duration-300 ${
-                    index === currentIndex ? "bg-red-500 w-8" : "bg-white/80 w-3 hover:bg-white"
+                    index === currentIndex ? "bg-red-500 w-8" : "bg-gray-300 w-3 hover:bg-gray-400"
                     }`}
                 />
                 ))}
             </div>
-            </>
         )}
         </div>
     );
