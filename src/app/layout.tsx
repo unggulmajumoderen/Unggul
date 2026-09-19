@@ -13,7 +13,7 @@ import Preloader from "@/components/Preloader";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://unggul-mart-ten.vercel.app'),
+  metadataBase: new URL('https://unggulmart.com'),
   title: {
     default: "Unggul Mart - Belanja Hemat dan Lengkap",
     template: "%s | Unggul Mart",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Unggul Mart - Belanja Hemat dan Lengkap",
     description: "Retail modern Islami di Berau. Tempat belanja hemat, lengkap, dan nyaman.",
-    url: 'https://unggul-mart-ten.vercel.app',
+    url: 'https://unggulmart.com',
     siteName: 'Unggul Mart',
     images: [
       {
