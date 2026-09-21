@@ -37,16 +37,29 @@ export default function Footer() {
                 Kalimantan Timur 77315
               </p>
             </div>
-            
-            <div className="flex items-center text-green-50 bg-green-900/50 p-4 rounded-xl border border-green-800">
-              <div className="bg-red-500 text-white p-2.5 rounded-full mr-4 shadow-md">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center text-green-50 bg-green-900/50 p-4 rounded-xl border border-green-800">
+                <div className="bg-red-500 text-white p-2.5 rounded-full mr-4 shadow-md">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                </div>
+                <div>
+                  <p className="text-xs text-green-300 font-bold uppercase tracking-wider mb-0.5">Layanan Pelanggan (CS)</p>
+                  <a href="https://wa.me/6285348302778" target="_blank" rel="noopener noreferrer" className="text-white text-lg md:text-xl font-extrabold hover:text-red-400 transition-colors">
+                    085348302778
+                  </a>
+                </div>
               </div>
-              <div>
-                <p className="text-xs text-green-300 font-bold uppercase tracking-wider mb-0.5">Layanan Pelanggan (CS)</p>
-                <a href="https://wa.me/6285348302778" target="_blank" rel="noopener noreferrer" className="text-white text-lg md:text-xl font-extrabold hover:text-red-400 transition-colors">
-                  085348302778
-                </a>
+              
+              <div className="flex items-center text-green-50 bg-green-900/50 p-4 rounded-xl border border-green-800">
+                <div className="bg-red-500 text-white p-2.5 rounded-full mr-4 shadow-md">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                </div>
+                <div>
+                  <p className="text-xs text-green-300 font-bold uppercase tracking-wider mb-0.5">Email</p>
+                  <a href="mailto:contact@unggulmart.com" className="text-white text-sm md:text-base lg:text-lg font-extrabold hover:text-red-400 transition-colors">
+                    contact@unggulmart.com
+                  </a>
+                </div>
               </div>
             </div>
           </div>
