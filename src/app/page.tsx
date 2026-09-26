@@ -36,7 +36,7 @@ async function getHeroBanners() {
 
   // 4. Fungsi untuk menarik data Promosi
   async function getPromotions() {
-    const query = `*[_type == "promotion" && !(_id in path("drafts.**"))] | order(_createdAt desc)[0...4] {
+    const query = `*[_type == "promotion" && !(_id in path("drafts.**"))] | order(_createdAt desc) {
       _id,
       title,
       "slug": slug.current,
